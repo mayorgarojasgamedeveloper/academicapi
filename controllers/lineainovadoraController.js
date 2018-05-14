@@ -29,3 +29,12 @@ exports.estadisticas = function(req, res) {
   var response = model.estadisticas();
   return response;
 };
+
+exports.estadisticasProduccion = function(req, res) {
+  var response = model.estadisticasProduccion();
+  return response;
+};
+exports.estadisticasUsuarios = function(req, res) {
+  var response = model.estadisticasUsuarios();
+  return response;
+};

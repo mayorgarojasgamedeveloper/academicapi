@@ -7,6 +7,16 @@ router.get('/estadisticas', async function(req, res, next) {
   res.json(response);
 });
 
+router.get('/estadisticasProduccion', async function(req, res, next) {
+  var response = await controller.estadisticasProduccion(req, res);
+  res.json(response);
+});
+
+router.get('/estadisticasUsuarios', async function(req, res, next) {
+  var response = await controller.estadisticasUsuarios(req, res);
+  res.json(response);
+});
+
 router.post('/', async function(req, res, next) {
   var response = await controller.create(req, res);
   res.json(response);

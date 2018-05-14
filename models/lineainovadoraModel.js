@@ -35,3 +35,13 @@ exports.estadisticas = function() {
   var response = db.ESTADISTICAS();
   return response;
 }
+
+exports.estadisticasProduccion = function() {
+  var response = db.ESTADISTICASPRODUCCION();
+  return response;
+}
+
+exports.estadisticasUsuarios = function() {
+  var response = db.ESTADISTICASUSUARIOS();
+  return response;
+}

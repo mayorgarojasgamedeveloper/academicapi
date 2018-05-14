@@ -98,3 +98,34 @@ sql += `   SELECT`;
   const { rows } = await client.query(sql);
   return rows;
 }
+
+
+exports.ESTADISTICASPRODUCCION = async function() {
+
+  var sql = ``;
+  sql += `  SELECT`;
+  sql += ` (SELECT count(*) FROM reporte_1 WHERE subtipo=1) as difusion,`;
+  sql += ` (SELECT count(*) FROM reporte_1 WHERE subtipo=2) as arbitrado,`;
+  sql += ` (SELECT count(*) FROM reporte_1 WHERE subtipo=3) as revista,`;
+  sql += ` (SELECT count(*) FROM reporte_2 WHERE subtipo=4) as capitulo,`;
+  sql += ` (SELECT count(*) FROM reporte_2 WHERE subtipo=6) as libro,`;
+  sql += ` (SELECT count(*) FROM reporte_2 WHERE subtipo=8) as memoria,`;
+  sql += ` (SELECT count(*) FROM reporte_3 WHERE subtipo=7) as manuales,`;
+  sql += ` (SELECT count(*) FROM reporte_3 WHERE subtipo=9) as productividad,`;
+  sql += ` (SELECT count(*) FROM reporte_3 WHERE subtipo=10) as prototipo,`;
+  sql += ` (SELECT count(*) FROM informetecnico WHERE subtipo=5) as informe`;
+
+  const { rows } = await client.query(sql);
+  return rows;
+}
+
+exports.ESTADISTICASUSUARIOS = async function() {
+
+  var sql = ``;
+  sql += `  SELECT`;
+  sql += `  (SELECT count(*) FROM usuario WHERE permisos=true) as superusuarios,`;
+  sql += `  (SELECT count(*) FROM usuario WHERE permisos=false) as academicos`;
+
+  const { rows } = await client.query(sql);
+  return rows;
+}
